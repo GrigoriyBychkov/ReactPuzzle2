@@ -1,0 +1,26 @@
+*{
+    font-family: Arial;
+}
+
+ul {
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+    width:258px;
+    margin:auto;
+}
+
+li {
+    height:80px;
+    width:80px;
+    background: #5763ce;
+    margin: 3px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:30px;
+    border-radius:5px;
+    box-shadow: 2px 2px 15px #00000054;
+
+}
