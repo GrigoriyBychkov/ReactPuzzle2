@@ -132,7 +132,7 @@ class ReactPuzzle extends React.Component{
                     refresh
                 </button>
                 <h2>Size: {this.state.size} </h2>
-                <ul>
+                <ul style={{width: 86 * this.state.size}}>
                     {
                         items
                     }
