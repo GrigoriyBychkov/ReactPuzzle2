@@ -47,8 +47,9 @@ class ReactPuzzle extends React.Component{
 
 
 
-    dragStart(index){
+    dragStart(event, index){
         this.setState({'currentIndex': index});
+        event.dataTransfer.setData("text/html", null);
     }
 
     dragOver(index){
@@ -117,6 +118,7 @@ class ReactPuzzle extends React.Component{
                <li draggable="true"
                    key={index}
                    onDragStart={()=> this.dragStart(index)}
+                   onDragStart={(event)=> this.dragStart(event)}
                    onDragEnd={(event)=> this.dragEnd(event)}
                    onDragOver={()=> this.dragOver(index)}
 
