@@ -117,8 +117,7 @@ class ReactPuzzle extends React.Component{
            items.push(
                <li draggable="true"
                    key={index}
-                   onDragStart={()=> this.dragStart(index)}
-                   onDragStart={(event)=> this.dragStart(event)}
+                   onDragStart={(event)=> this.dragStart(event, index)}
                    onDragEnd={(event)=> this.dragEnd(event)}
                    onDragOver={()=> this.dragOver(index)}
 
