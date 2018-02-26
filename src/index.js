@@ -18,11 +18,11 @@ class ReactPuzzle extends React.Component{
     }
     getInitialState() {
         // let size = prompt('size');
-        let size = '';
+        let size = 3;
         let list = [];
         this.delta = this.delta.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.updateInputValue = this.updateInputValue.bind(this);
+        // this.updateInputValue = this.updateInputValue.bind(this);
         let alertwin = '';
         for (let i = 1; i<=size*size; i++) {
             list.push(i);
@@ -36,16 +36,13 @@ class ReactPuzzle extends React.Component{
             currentIndex: null,
             targetIndex: null,
             alertwin: alertwin,
-            inputValue: ''
+            input: ''
         }
     }
 
     delta() {
-        this.setState({
-            size : 0,
-            list : []
-        });
-    }
+        this.setState({size: this.state.input })
+        }
 
 
 
@@ -86,21 +83,22 @@ class ReactPuzzle extends React.Component{
         }
     }
 
-    updateInputValue (event, list) {
-        let abuff = list[this.state.size];
-        list[this.state.size] = list[this.state.inputValue];
-        list[this.state.size] = abuff;
-        console.log(this.state.list);
-        this.setState({
-            'list': list,
-            'size': this.state.size,
-            'inputValue': ''
-        });
-        event.preventDefault();
-    };
-
+    // updateInputValue (event, list) {
+    //     let abuff = list[this.state.size];
+    //     list[this.state.size] = list[this.state.inputValue];
+    //     list[this.state.size] = abuff;
+    //     console.log(this.state.list);
+    //     this.setState({
+    //         'list': list,
+    //         'size': this.state.inputValue,
+    //         'inputValue': ''
+    //     });
+    //     event.preventDefault();
+    // };
+    //
     handleChange(event) {
-        this.setState({inputValue: event.target.value});
+        this.state = this.getInitialState();
+        this.setState({input: event.target.value});
     }
 
 
@@ -123,12 +121,7 @@ class ReactPuzzle extends React.Component{
         return(
             <div>
                 Введите размер
-                <form onSubmit={this.updateInputValue}>
-                    <label>
-                        <input type="text" value={this.state.inputValue} onChange={this.handleChange} />
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
+                   <input type="text" onChange={this.handleChange}/>
                 <button onClick={this.delta}>
                     refresh
                 </button>
