@@ -18,11 +18,8 @@ class ReactPuzzle extends React.Component{
     }
     getInitialState() {
         // let size = prompt('size');
-        let size = 3;
+        let size =  3;
         let list = [];
-        this.delta = this.delta.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        // this.updateInputValue = this.updateInputValue.bind(this);
         let alertwin = '';
         for (let i = 1; i<=size*size; i++) {
             list.push(i);
@@ -30,18 +27,23 @@ class ReactPuzzle extends React.Component{
         }
         shuffle(list);
 
+        if(this.state && this.state.input){
+            size = Number(this.state.input);
+        }else{
+            size = 3
+        }
+
         return {
             size: size,
             list: list,
             currentIndex: null,
             targetIndex: null,
             alertwin: alertwin,
-            input: ''
         }
     }
 
     delta() {
-        this.setState({size: this.state.input })
+        this.setState(this.getInitialState());
         }
 
 
@@ -97,7 +99,6 @@ class ReactPuzzle extends React.Component{
     // };
     //
     handleChange(event) {
-        this.state = this.getInitialState();
         this.setState({input: event.target.value});
     }
 
@@ -121,7 +122,7 @@ class ReactPuzzle extends React.Component{
         return(
             <div>
                 Введите размер
-                   <input type="text" onChange={this.handleChange}/>
+                   <input type="text"  onChange={this.handleChange}/>
                 <button onClick={this.delta}>
                     refresh
                 </button>
