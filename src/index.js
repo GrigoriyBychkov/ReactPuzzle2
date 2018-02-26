@@ -19,6 +19,11 @@ class ReactPuzzle extends React.Component{
     getInitialState() {
         // let size = prompt('size');
         let size =  3;
+        if(this.state && this.state.input){
+            size = Number(this.state.input);
+        }else{
+            size = 3
+        }
         let list = [];
         let alertwin = '';
         for (let i = 1; i<=size*size; i++) {
@@ -27,11 +32,7 @@ class ReactPuzzle extends React.Component{
         }
         shuffle(list);
 
-        if(this.state && this.state.input){
-            size = Number(this.state.input);
-        }else{
-            size = 3
-        }
+
 
         return {
             size: size,
@@ -42,9 +43,7 @@ class ReactPuzzle extends React.Component{
         }
     }
 
-    delta() {
-        this.setState(this.getInitialState());
-        }
+
 
 
 
@@ -60,7 +59,8 @@ class ReactPuzzle extends React.Component{
         if (typeof this.state.currentIndex === 'number' && typeof this.state.targetIndex === 'number') {
             const list = this.state.list;
             let buff = list[this.state.currentIndex];
-            list[this.state.currentIndex] = list[this.state.inputValue];
+            list[this.state.currentIndex] = list[this.state.input];
+            list[this.state.currentIndex] = list[this.state.targetIndex];
             list[this.state.targetIndex] = buff;
             this.setState({
                 'list': list,
@@ -102,6 +102,10 @@ class ReactPuzzle extends React.Component{
         this.setState({input: event.target.value});
     }
 
+    handleClick() {
+        this.setState(this.getInitialState());
+    }
+
 
 
 
@@ -122,8 +126,8 @@ class ReactPuzzle extends React.Component{
         return(
             <div>
                 Введите размер
-                   <input type="text"  onChange={this.handleChange}/>
-                <button onClick={this.delta}>
+                   <input type="text"  onChange={(event) => this.handleChange(event)}/>
+                <button onClick={(event) => this.handleClick(event)}>
                     refresh
                 </button>
                 <h2>Size: {this.state.size} </h2>
