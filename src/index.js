@@ -81,24 +81,12 @@ class ReactPuzzle extends React.Component{
         });
         if (win) {
             this.setState({
-                'alertwin': 'ВЫ победили'
+                'alertwin': 'Congratulations team, you are WIN!'
             });
         }
     }
 
-    // updateInputValue (event, list) {
-    //     let abuff = list[this.state.size];
-    //     list[this.state.size] = list[this.state.inputValue];
-    //     list[this.state.size] = abuff;
-    //     console.log(this.state.list);
-    //     this.setState({
-    //         'list': list,
-    //         'size': this.state.inputValue,
-    //         'inputValue': ''
-    //     });
-    //     event.preventDefault();
-    // };
-    //
+
     handleChange(event) {
         this.setState({input: event.target.value});
     }
