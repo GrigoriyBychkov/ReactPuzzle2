@@ -9,6 +9,14 @@ ul {
     width:258px;
     margin:auto;
 }
+.div .inputBlock{
+    display: block;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-items: center;
+    position: absolute;
+    text-align: center;
+}
 
 li {
     height:80px;
@@ -22,5 +30,44 @@ li {
     font-size:30px;
     border-radius:5px;
     box-shadow: 2px 2px 15px #00000054;
+
+}
+
+input {
+    color: #5763ce;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border-color: #5763ce;
+    font-size: 18px;
+    margin-right: 3px;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+h2 {
+    font-size: 30px;
+    width: 100px;
+
+}
+
+div {
+    display: flex;
+    flex-wrap: wrap;
+    margin:20px;
+    padding:20px;
+
+}
+button{
+    width: 144px;
+    height: 56px;
+    background: #5763ce;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    padding: 5px;
 
 }

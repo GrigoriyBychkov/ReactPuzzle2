@@ -126,12 +126,12 @@ class ReactPuzzle extends React.Component{
         });
         return(
             <div>
-                Введите размер
-                   <input type="text"  onChange={(event) => this.handleChange(event)}/>
+                <div className='inputBlock'>
+                   <input type="text"  placeholder="Введите размер"  onChange={(event) => this.handleChange(event)}/>
                 <button onClick={(event) => this.handleClick(event)}>
-                    refresh
+                    Start New Game
                 </button>
-                <h2>Size: {this.state.size} </h2>
+                </div>
                 <ul style={{width: 86 * this.state.size}}>
                     {
                         items
